@@ -37,8 +37,16 @@ export default function RegisterForm({ onRegister }) {
       <input className="block w-full mb-2 p-2 border rounded" name="username" placeholder="Username" value={form.username} onChange={handleChange} required />
       <input className="block w-full mb-2 p-2 border rounded" name="name" placeholder="Name" value={form.name} onChange={handleChange} required />
       <input className="block w-full mb-2 p-2 border rounded" name="phone" placeholder="Phone" value={form.phone} onChange={handleChange} required />
-      <input className="block w-full mb-2 p-2 border rounded" name="accountType" placeholder="Account Type" value={form.accountType} onChange={handleChange} required />
-      <input className="block w-full mb-2 p-2 border rounded" name="role" placeholder="Role" value={form.role} onChange={handleChange} required />
+      <select className="block w-full mb-2 p-2 border rounded" name="accountType" value={form.accountType} onChange={handleChange} required>
+        <option value="" disabled>Select Account Type</option>
+        <option value="savings">Savings</option>
+        <option value="business">Business</option>
+      </select>
+      <select className="block w-full mb-2 p-2 border rounded" name="role" value={form.role} onChange={handleChange} required>
+        <option value="" disabled>Select Role</option>
+        <option value="user">User</option>
+        <option value="admin">Admin</option>
+      </select>
       <input className="block w-full mb-2 p-2 border rounded" name="pin" placeholder="PIN" type="password" value={form.pin} onChange={handleChange} required />
       <input className="block w-full mb-4 p-2 border rounded" name="initialBalance" placeholder="Initial Balance" type="number" value={form.initialBalance} onChange={handleChange} required />
       <button className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700" type="submit">

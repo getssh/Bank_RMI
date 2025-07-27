@@ -35,11 +35,11 @@ export default function AdminPanel() {
           <tbody>
             {users && users.length > 0 ? users.map((u, i) => (
               <tr key={i} className={i % 2 === 1 ? "bg-blue-50" : ""}>
-                <td className="p-2">{u.account_number || "-"}</td>
+                <td className="p-2">{u.accountNumber || "-"}</td>
                 <td className="p-2">{u.username || "-"}</td>
                 <td className="p-2">{u.name || "-"}</td>
                 <td className="p-2">{u.phone || "-"}</td>
-                <td className="p-2">{u.account_type || "-"}</td>
+                <td className="p-2">{u.accountType || "-"}</td>
                 <td className="p-2">{u.role || "-"}</td>
               </tr>
             )) : (
@@ -69,8 +69,8 @@ export default function AdminPanel() {
                 <td className="p-2">{tx.date || tx.timestamp || "-"}</td>
                 <td className="p-2">{tx.type || "-"}</td>
                 <td className="p-2">{tx.amount || "-"}</td>
-                <td className="p-2">{tx.account_number || "-"}</td>
-                <td className="p-2">{tx.target_account || "-"}</td>
+                <td className="p-2">{tx.accountNumber || "-"}</td>
+                <td className="p-2">{tx.targetAccount || "-"}</td>
                 <td className="p-2">{tx.details || "-"}</td>
               </tr>
             )) : (
