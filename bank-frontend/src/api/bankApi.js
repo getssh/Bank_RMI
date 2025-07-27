@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8080/api/bank";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080/api/bank";
 
 export async function login(username, pin) {
   const res = await fetch(`${API_URL}/login`, {

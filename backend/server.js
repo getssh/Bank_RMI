@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const rateLimit = require('express-rate-limit');
-require('dotenv').config({ path: './config.env' });
+require('dotenv').config({ path: require('path').resolve(__dirname, '../.env') });
 
 const app = express();
 const PORT = process.env.PORT || 8080;
