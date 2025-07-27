@@ -8,7 +8,7 @@ export default function TransferForm({ accountNumber, onAction }) {
 
   const handleTransfer = async () => {
     const res = await transfer(accountNumber, toAccount, amount);
-    setMessage(`Transferred ETB${amount} to account ${toAccount}. New balance: ETB${res}`);
+    setMessage(`Transferred ETB${amount} to account ${toAccount}. New balance: ETB${res.newBalance}`);
     setToAccount("");
     setAmount("");
     onAction && onAction();

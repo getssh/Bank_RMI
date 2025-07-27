@@ -1,14 +1,20 @@
 const API_URL = "http://localhost:8080/api/bank";
 
 export async function login(username, pin) {
-  const params = new URLSearchParams({ username, pin });
-  const res = await fetch(`${API_URL}/login?${params}`, { method: "POST" });
+  const res = await fetch(`${API_URL}/login`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ username, pin })
+  });
   return res.json();
 }
 
 export async function createAccount(data) {
-  const params = new URLSearchParams(data);
-  const res = await fetch(`${API_URL}/createAccount?${params}`, { method: "POST" });
+  const res = await fetch(`${API_URL}/createAccount`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  });
   return res.json();
 }
 
@@ -18,17 +24,29 @@ export async function getBalance(accountNumber) {
 }
 
 export async function deposit(accountNumber, amount) {
-  const res = await fetch(`${API_URL}/deposit?accountNumber=${accountNumber}&amount=${amount}`, { method: "POST" });
+  const res = await fetch(`${API_URL}/deposit`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ accountNumber, amount })
+  });
   return res.json();
 }
 
 export async function withdraw(accountNumber, amount) {
-  const res = await fetch(`${API_URL}/withdraw?accountNumber=${accountNumber}&amount=${amount}`, { method: "POST" });
+  const res = await fetch(`${API_URL}/withdraw`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ accountNumber, amount })
+  });
   return res.json();
 }
 
 export async function transfer(fromAccount, toAccount, amount) {
-  const res = await fetch(`${API_URL}/transfer?fromAccount=${fromAccount}&toAccount=${toAccount}&amount=${amount}`, { method: "POST" });
+  const res = await fetch(`${API_URL}/transfer`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ fromAccount, toAccount, amount })
+  });
   return res.json();
 }
 

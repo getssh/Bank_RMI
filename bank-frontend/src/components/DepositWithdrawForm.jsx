@@ -7,14 +7,14 @@ export default function DepositWithdrawForm({ accountNumber, onAction }) {
 
   const handleDeposit = async () => {
     const res = await deposit(accountNumber, amount);
-    setMessage(`Deposited ETB${amount}. New balance: ETB${res}`);
+    setMessage(`Deposited ETB${amount}. New balance: ETB${res.newBalance}`);
     setAmount("");
     onAction && onAction();
   };
 
   const handleWithdraw = async () => {
     const res = await withdraw(accountNumber, amount);
-    setMessage(`Withdrew ETB${amount}. New balance: ETB${res}`);
+    setMessage(`Withdrew ETB${amount}. New balance: ETB${res.newBalance}`);
     setAmount("");
     onAction && onAction();
   };
