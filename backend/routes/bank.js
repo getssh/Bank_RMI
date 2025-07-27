@@ -198,9 +198,12 @@ router.get('/transactions', async (req, res) => {
 
 
 router.get('/time', (req, res) => {
-  res.json({ 
-    serverTime: new Date().toISOString(),
-    localTime: new Date().toLocaleString()
+  const now = new Date();
+  res.json({
+    date: now.toLocaleDateString(),
+    time: now.toLocaleTimeString(),
+    dateTime: now.toLocaleString(),
+    timestamp: now.toISOString()
   });
 });
 
